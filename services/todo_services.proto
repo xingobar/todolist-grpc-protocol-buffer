@@ -26,5 +26,5 @@ message TodoGetRequest {
 
 service TodoService {
  rpc ListTodos(google.protobuf.Empty) returns(TodosResponse) {};
- rpc GetById(TodoGetRequest) returns(entity.Todo) {};
+ rpc GetById(TodoGetRequest) returns(TodoResponse) {};
 }
