@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package entity;
+
+message Todo {
+    uint32 id  = 1;
+    string title = 2;
+    string name = 3;
+    bool is_complete = 4;
+}
