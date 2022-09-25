@@ -36,9 +36,17 @@ message TodoPutRequest {
     Payload payload = 2;
 }
 
+message TodoPostRequest {
+    uint32 id = 1;
+    string title = 2;
+    string name = 3;
+    bool is_complete =4;
+}
+
 
 service TodoService {
     rpc ListTodos(google.protobuf.Empty) returns(TodosResponse) {};
     rpc GetById(TodoGetRequest) returns(TodoResponse) {};
     rpc UpdateById(TodoPutRequest) returns(TodoResponse) {};
+    rpc CreateTodo(TodoPostRequest) returns(TodoResponse) {};
 }
