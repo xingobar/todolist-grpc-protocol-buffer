@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package services;
+
+option php_namespace = "Protobuf\\Services";
+option php_metadata_namespace = "Protobuf\\GPBMetadata";
+
+import public "entity/todo.proto";
+import "google/protobuf/empty.proto";
+
+message TodoResponse {
+ repeated entity.Todo todos = 1;
+}
+
+service TodoService {
+ rpc ListTodos(google.protobuf.Empty) returns(TodoResponse) {};
+}
