@@ -43,10 +43,23 @@ message TodoPostRequest {
     bool is_complete =4;
 }
 
+message TodoDestroyRequest {
+    uint32 id = 1;
+}
 
 service TodoService {
+    // 代辦事項列表
     rpc ListTodos(google.protobuf.Empty) returns(TodosResponse) {};
+
+    // 取得特定代辦事項
     rpc GetById(TodoGetRequest) returns(TodoResponse) {};
+
+    // 更新特定的代辦事項
     rpc UpdateById(TodoPutRequest) returns(TodoResponse) {};
+
+    // 創建代辦事項
     rpc CreateTodo(TodoPostRequest) returns(TodoResponse) {};
+
+    // 刪除特定的代辦事項
+    rpc DestroyTodo(TodoDestroyRequest) returns(TodoResponse) {};
 }
