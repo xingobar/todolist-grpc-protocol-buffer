@@ -7,11 +7,24 @@ option php_metadata_namespace = "Protobuf\\GPBMetadata";
 
 import public "entity/todo.proto";
 import "google/protobuf/empty.proto";
+import public "entity/error.proto";
 
-message TodoResponse {
+message TodosResponse {
  repeated entity.Todo todos = 1;
 }
 
+message TodoResponse {
+  oneof response {
+    entity.Todo todo = 1;
+    entity.Error error = 2;
+  }
+}
+
+message TodoGetRequest {
+ uint32 id = 1;
+}
+
 service TodoService {
- rpc ListTodos(google.protobuf.Empty) returns(TodoResponse) {};
+ rpc ListTodos(google.protobuf.Empty) returns(TodosResponse) {};
+ rpc GetById(TodoGetRequest) returns(entity.Todo) {};
 }
