@@ -5,9 +5,9 @@ package services;
 option php_namespace = "Protobuf\\Services";
 option php_metadata_namespace = "Protobuf\\GPBMetadata";
 
-import public "entity/todo.proto";
+import "entity/todo.proto";
 import "google/protobuf/empty.proto";
-import public "entity/error.proto";
+import "entity/error.proto";
 
 message TodosResponse {
  repeated entity.Todo todos = 1;
