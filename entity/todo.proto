@@ -2,6 +2,9 @@ syntax = "proto3";
 
 package entity;
 
+option php_namespace = "App\Protobuf"
+option php_metadata_namespace = "App\\GPBMetadata";
+
 message Todo {
     uint32 id  = 1;
     string title = 2;
