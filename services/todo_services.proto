@@ -21,10 +21,24 @@ message TodoResponse {
 }
 
 message TodoGetRequest {
- uint32 id = 1;
+    uint32 id = 1;
 }
 
+message TodoPutRequest {
+    uint32 id = 1;
+
+    message Payload {
+        string title  = 1;
+        string name = 2;
+        bool is_complete = 3;
+    }
+
+    Payload payload = 2;
+}
+
+
 service TodoService {
- rpc ListTodos(google.protobuf.Empty) returns(TodosResponse) {};
- rpc GetById(TodoGetRequest) returns(TodoResponse) {};
+    rpc ListTodos(google.protobuf.Empty) returns(TodosResponse) {};
+    rpc GetById(TodoGetRequest) returns(TodoResponse) {};
+    rpc UpdateById(TodoPutRequest) returns(TodoResponse) {};
 }
